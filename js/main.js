@@ -8,7 +8,7 @@ if (usuario != "") {
 }
 
 
-let inicio = parseFloat(prompt("Necesita pagar una deuda? descubra cuanto IVA va a tener que abonar y cuantos intereses si lo paga en cuotas:"));
+let inicio = parseFloat(prompt("Necesita pagar una deuda? descubra cuanto IVA va a tener que abonar y cuantos intereses si lo paga en cuotas. Ingrese el monto aquí:"));
 
 let precio = inicio;
 let Iva = 0;

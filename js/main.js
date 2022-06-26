@@ -16,7 +16,7 @@ let suma = 0;
 
 
 function iva(precio) {
-    Iva = precio*0.21;
+    Iva = precio*1.21;
     return Iva
 }
 

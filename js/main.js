@@ -69,7 +69,7 @@ while (meses != "No") {
         
         }
 
-    meses = prompt("Tenes que pagar en cuotas? En el caso de que sea un no, escribe la palabra No, y en el caso de que si, pon directamente el numero de cuotas. Aviso: la tasa de interes por mes es del 5%");
+    meses = prompt("Puedes averiguar cuanto IVA tendras si pagas en cuotas nuevamente, manteniendo el monto introducido anteriormente");
 
 }
 

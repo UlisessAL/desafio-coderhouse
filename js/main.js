@@ -1,124 +1,79 @@
-let usuario = prompt("Ingresa tu nombre");
-
-alert ("Bienvenido " + usuario);
-
-
-let materias = prompt("Ingresa el numero de las siguientes materias y anotar cuanto sacaste \n 1-Matemáticas \n 2-Fisica \n 3-Química \n 4-Arte \n 5-Historia \n Para salir escribe Listo");
-
-
-
-while (materias != "Listo") {
-    switch (materias) {
-        case "1":
-            alert ("Seleccionaste Matemáticas, cuanto te sacaste? Dependiento tu nota vas a estar aprobado o no");
-            
-            numero = parseInt (prompt("Pon la calificacion que obtuviste aqui"));
-
-            if (isNaN(numero)) {
-                alert("El valor ingresado no es un número");
-            }else {
-                if (numero >= 7 && numero != 10) {
-                    alert("Felicidades, estás probado!!");
-                }else {
-                    if (numero == 10) {
-                        alert("Felicidades, sacaste 10!");
-                    }else {
-                        alert("Estás desaprobado, no te rindas!!");
-                    }
-                }
-            };
-            
-            break;
-
-        
-        case "2":
-            alert ("Seleccionaste Física, cuanto te sacaste? Dependiento tu nota vas a estar aprobado o no");
-
-            numero = parseInt (prompt("Pon la calificacion que obtuviste aqui"));
-
-            if (isNaN(numero)) {
-                alert("El valor ingresado no es un número");
-            }else {
-                if (numero >= 7 && numero != 10) {
-                    alert("Felicidades, estás probado!!");
-                }else {
-                    if (numero == 10) {
-                        alert("Felicidades, sacaste 10!");
-                    }else {
-                        alert("Estás desaprobado, no te rindas!!");
-                    }
-                }
-            };
-            
-
-            break;
-
-        case "3":
-            alert ("Seleccionaste Química, cuanto te sacaste? Dependiento tu nota vas a estar aprobado o no");
-
-            numero = parseInt (prompt("Pon la calificacion que obtuviste aqui"));
-
-            if (isNaN(numero)) {
-                alert("El valor ingresado no es un número");
-            }else {
-                if (numero >= 7 && numero != 10) {
-                    alert("Felicidades, estás probado!!");
-                }else {
-                    if (numero == 10) {
-                        alert("Felicidades, sacaste 10!");
-                    }else {
-                        alert("Estás desaprobado, no te rindas!!");
-                    }
-                }
-            };
-
-            break;
-    
-        case "4":
-            alert ("Seleccionaste Arte, cuanto te sacaste? Dependiento tu nota vas a estar aprobado o no");
-
-            numero = parseInt (prompt("Pon la calificacion que obtuviste aqui"));
-
-            if (isNaN(numero)) {
-                alert("El valor ingresado no es un número");
-            }else {
-                if (numero >= 7 && numero != 10) {
-                    alert("Felicidades, estás probado!!");
-                }else {
-                    if (numero == 10) {
-                        alert("Felicidades, sacaste 10!");
-                    }else {
-                        alert("Estás desaprobado, no te rindas!!");
-                    }
-                }
-            };
-
-            break;
-
-        case "5":
-            alert ("Seleccionaste Historia, cuanto te sacaste? Dependiento tu nota vas a estar aprobado o no");
-
-            numero = parseInt (prompt("Pon la calificacion que obtuviste aqui"));
-
-            if (isNaN(numero)) {
-                alert("El valor ingresado no es un número");
-            }else {
-                if (numero >= 7 && numero != 10) {
-                    alert("Felicidades, estás probado!!");
-                }else {
-                    if (numero == 10) {
-                        alert("Felicidades, sacaste 10!");
-                    }else {
-                        alert("Estás desaprobado, no te rindas!!");
-                    }
-                }
-            };
-
-            break;
-    
-        default:
-            alert("Opcion no valida");
-            break;
-    }
-    materias = prompt("Ingresa el numero de las siguientes materias y anotar cuanto sacaste \n 1-Matematicas \n 2-Fisica \n 3-Química \n 4-Arte \n 5-Historia \n Para salir escribe Listo");
+let usuario = prompt("Ingrese su nombre");
+while (usuario == "") {
+    alert("Por favor, ingrese un nombre válido");
+    usuario = prompt("Ingrese su nombre");
 }
+if (usuario != "") {
+    alert ("Bienvenido " + usuario);
+}
+
+
+let inicio = parseFloat(prompt("Necesita pagar una deuda? descubra cuanto IVA va a tener que abonar y cuantos intereses si lo paga en cuotas:"));
+
+let precio = inicio;
+let Iva = 0;
+let suma = 0;
+
+
+function iva(precio) {
+    Iva = precio*0.21;
+    return Iva
+}
+
+
+function sumar(precio, Iva) {
+    suma = precio + Iva;
+    return suma;
+}
+
+if (isNaN(inicio)) {
+    alert("El valor ingresado no es un número");
+}else{
+    alert("El IVA que va a tener que pagar será de: $" + iva (precio) + "\n Por lo tanto, el monto final en un pago es de: $" + sumar(precio, Iva));
+}
+
+let meses = parseFloat(prompt("Tenes que pagar en cuotas? En el caso de que sea un no, escribe la palabra No, y en el caso de que si, pon directamente el numero de cuotas. Aviso: la tasa de interes por mes es del 5%"));
+
+let semiInteres = 0;
+
+function semiIntereses(meses,suma) {
+    semiInteres = meses*suma
+    return semiInteres;
+}
+
+function interes(meses,suma) {
+    let intereses = (meses*suma)*0.05;
+    return intereses;
+}
+
+
+while (meses != "No") {
+
+
+        if(isNaN(meses)) {
+            alert("El valor ingresado no es un número");
+        }else{
+    
+    
+                switch (meses) {
+                    case meses:
+        
+                        alert("Usted eligió pagar en " + meses + " cuotas, por ende va a tener un interes de $" + interes(meses,suma)) ;
+        
+                        break;
+                
+                    default:
+                        alert("Opcion no valida");
+                        break;
+                }
+        
+        }
+
+    meses = prompt("Tenes que pagar en cuotas? En el caso de que sea un no, escribe la palabra No, y en el caso de que si, pon directamente el numero de cuotas. Aviso: la tasa de interes por mes es del 5%");
+
+}
+
+
+
+
+

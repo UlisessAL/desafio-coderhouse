@@ -1,1 +1,0 @@
-# ejercicio-complementario-1

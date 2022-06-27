@@ -1,79 +1,79 @@
-let usuario = prompt("Ingrese su nombre");
-while (usuario == "") {
-    alert("Por favor, ingrese un nombre válido");
-    usuario = prompt("Ingrese su nombre");
-}
-if (usuario != "") {
-    alert ("Bienvenido " + usuario);
-}
 
 
-let inicio = parseFloat(prompt("Necesita pagar una deuda? descubra cuanto IVA va a tener que abonar y cuantos intereses si lo paga en cuotas. Ingrese el monto aquí:"));
+function Inicio(nombre,edad) {
+    this.nombre = nombre;
+    this.edad = edad;
 
-let precio = inicio;
-let Iva = 0;
-let suma = 0;
+    this.saludar = () => {
+        alert("Hola " + this.nombre + ", tienes " + this.edad + " años");
+    }
 
 
-function iva(precio) {
-    Iva = precio*0.21;
-    return Iva
 }
 
 
-function sumar(precio, Iva) {
-    suma = precio + Iva;
-    return suma;
+function ingresoNombre() {
+    let login = prompt ("Ingresa tu nombre");
+    return login;
 }
 
-if (isNaN(inicio)) {
-    alert("El valor ingresado no es un número");
-}else{
-    alert("El IVA que va a tener que pagar será de: $" + iva (precio) + "\n Por lo tanto, el monto final en un pago es de: $" + sumar(precio, Iva));
+function ingresoEdad() {
+    let loginEdad = parseInt(prompt ("Ingresa tu edad"));
+    return loginEdad;
 }
 
-let meses = parseFloat(prompt("Tenes que pagar en cuotas? En el caso de que sea un no, escribe la palabra No, y en el caso de que si, pon directamente el numero de cuotas. Aviso: la tasa de interes por mes es del 5%"));
-
-let semiInteres = 0;
-
-function semiIntereses(meses,suma) {
-    semiInteres = meses*suma
-    return semiInteres;
-}
-
-function interes(meses,suma) {
-    let intereses = (meses*suma)*0.05;
-    return intereses;
-}
+let nombre1= ingresoNombre();
+let edad1 = ingresoEdad();
 
 
-while (meses != "No") {
+let Inicio1 = new Inicio(nombre1,edad1);
 
+Inicio1.saludar();
 
-        if(isNaN(meses)) {
-            alert("El valor ingresado no es un número");
-        }else{
+// class Tortas {
+//     constructor (nombre,precio) {
+//         this.nombre = nombre.toUpperCase();
+//         this.precio = parseFloat(precio);
+//         this.disponibilidad = false;
+//     }
+
+//     Iva () {
+//         this.precio = this.precio * 0.21;
+//     }
+
+// }
+
+// const productos = [];
+// productos.push (new Tortas ("Torta de chocolate","1500"));
+// productos.push (new Tortas ("Cheesecake","2000"));
+// productos.push (new Tortas ("Torta de chocolate blanco","1800"));
+
+// for (const Tortas of productos) {
+//     Tortas.Iva();
+// }
+
+const productos = [
+{id: 1, producto: "Torta de chocolate", precio : "1500"},
+{id: 2, producto: "Torta de chocolate blanco", precio : "1800"},
+{id: 3, producto: "Cheesecake", precio : "2000"}
+];
+
+let verMenu = prompt ("Le gustaría ver el menu de Tortas que tenemos a disposicion? \n En caso de que quiera, escriba Si. En el caso contrario escriba No");
+
+if (verMenu == "No") {
+    alert ("Que tenga un buen día")
+} else {
+    while (verMenu != "Si") {
+        alert("Por favor, ingresa una opcion válida");
+        verMenu = prompt ("Le gustaría ver el menu de Tortas que tenemos a disposicion? \n En caso de que quiera, escriba Si. En el caso contrario escriba No");
+    }
     
-    
-                switch (meses) {
-                    case meses:
-        
-                        alert("Usted eligió pagar en " + meses + " cuotas, por ende va a tener un interes de $" + interes(meses,suma)) ;
-        
-                        break;
-                
-                    default:
-                        alert("Opcion no valida");
-                        break;
-                }
-        
-        }
-
-    meses = prompt("Puedes averiguar cuanto IVA tendras si pagas en cuotas nuevamente, manteniendo el monto introducido anteriormente");
-
 }
 
-
-
+if (verMenu === "Si") {
+    for (const producto of productos) {
+        alert("Producto número " + producto.id + " : " + producto.producto + " Y su precio es de: $" + producto.precio);
+    }
+}
 
 
